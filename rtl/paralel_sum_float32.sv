@@ -26,7 +26,7 @@ module paralel_sum_float32 #(
 
 	generate begin
 			for (j = 0; j < $clog2(LOG2_NUMBER_OF_INPUTS); j++) begin : NUM1
-				for (i = 0; i < NUMBER_OF_INPUTS/(j+1)/2; i++) begin : NUM2
+				for (i = 0; i < LOG2_NUMBER_OF_INPUTS/2; i++) begin : NUM2
 
 					if(j==0) begin
 
@@ -69,6 +69,7 @@ module paralel_sum_float32 #(
 			end
 		end
 	endgenerate
+
 
 	assign data_o = data_sum[0][$clog2(LOG2_NUMBER_OF_INPUTS)-1];
 
